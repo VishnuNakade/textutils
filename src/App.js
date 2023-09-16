@@ -4,11 +4,11 @@ import About from './componnents/About';
 import Navbar from './componnents/Navbar';
 import TextForm from './componnents/TextForm';
 import Alart from './componnents/Alart';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 
@@ -48,21 +48,20 @@ function App() {
   return (
     <>
     
-    {/* <Router> */}
+    <Router>
       <Navbar title="Texttutils2" aboutText="About Texttutils" mode={Mode} toggleMode={toggleMode}/>
       <Alart alart={alart}/>
       <div className="container my-3">
-        {/* <Routes> */}
+        <Routes>
           
-              {/* <Route element={<About/>} path="/about"/> */}
-                
+              <Route element={<About/>} path="/about"/>
+    
+              <Route element={<TextForm heading="Enter the text to analyze below"mode={Mode} showAlart={showAlart}/>} path="/"/>
               
-              {/* <Route element={} path="/"/> */}
-              <TextForm heading="Enter the text to analyze below"mode={Mode} showAlart={showAlart}/>
 
-        {/* </Routes> */}
+        </Routes>
       </div>
-    {/* </Router> */}
+    </Router>
 
     </>
   );
