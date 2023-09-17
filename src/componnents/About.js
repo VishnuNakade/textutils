@@ -1,36 +1,43 @@
 import React from 'react'
-import {useState} from 'react'
+// import {useState} from 'react'
 
-export default function About() {
-const[myStyle,setMystyle]=useState({
-  color:'white',
-  backgroundColor:'black'
-})
+export default function About(props) {
+// const[myStyle,setMystyle]=useState({
+//   color:'black',
+//   backgroundColor:'white'
+// })
 
-const[btnText,SetBtntext]=useState('Enable light Mode')
+// const[btnText,SetBtntext]=useState('Enable Dark Mode')
 
-let toggalStyle=()=>{
-  if(myStyle.color==='black'){
-    setMystyle({
-      color:'white',
-      backgroundColor:'black',
-      border: '1px solid while'
-    })
-    SetBtntext('Enable Light Mode')
-  }
-  else{
-    setMystyle({
-      color:'black',
-      backgroundColor:'white'
-    })
-    SetBtntext('Enable Dark Mode')
-  }
+// let toggalStyle=()=>{
+//   if(myStyle.color==='black'){
+//     setMystyle({
+//       color:'white',
+//       backgroundColor:'gray',
+//       border: '1px solid while'
+//     })
+//     SetBtntext('Enable Light Mode')
+//   }
+//   else{
+//     setMystyle({
+//       color:'black',
+//       backgroundColor:'white'
+//     })
+//     SetBtntext('Enable Dark Mode')
+//   }
+// }
+let myStyle={
+  color: props.mode==='dark'?'white':'black',
+  backgroundColor: props.mode==='dark'?'gray':'white',
+  // border: '2px solid',
+  // borderColor:props.mode==='dark'?'white':'black',
+
 }
 
  
   return (
     <div className='container' style={myStyle}>
-        <h1 className='my-3'>About Us</h1>
+        <h1 className='my-3'style={{color: props.mode==='dark'?'white':'black',}}>About Us</h1>
       <div className="accordion" id="accordionExample"style={myStyle}>
   <div className="accordion-item">
     <h2 className="accordion-header">
@@ -69,9 +76,9 @@ let toggalStyle=()=>{
     </div>
   </div>
 </div>
-<div className="container my-3">
-    <button type="button" className="btn btn-primary" onClick={toggalStyle}>{btnText}</button>
-</div>
+{/* <div className="container my-3">
+    <button type="button" className="btn btn-primary my-4" onClick={toggalStyle}>{btnText}</button>
+</div> */}
     </div>
   )
 }
